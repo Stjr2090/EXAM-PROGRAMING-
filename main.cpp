@@ -3,31 +3,14 @@
 using namespace std;
 
 int main() {
+  double sum = 0.0;
 
-  cout << "Enter the amount loaded onto your account (in UGX): ";
-  double balance;
-  cin >> balance;
-  cout << "Enter the number of water units consumed: ";
-  int units;
-  cin >> units;
-  double cost = 0;
-  if (units <= 10) {
-    cost = units * 150;
-  } else if (units <= 20) {
-    cost = 10 * 150 + (units - 10) * 175;
-  } else {
-    cost = 10 * 150 + 10 * 175 + (units - 20) * 200;
+  // Loop through odd numbers from 1 to 95 (inclusive)
+  for (int i = 1; i <= 95; i += 2) {
+    sum += static_cast<double>(i) / (i + 2); // Calculate and add each term
   }
-  //subcharge
-  cost *= 1.15;
 
-  // 18% VAT
-  cost *= 1.18;
-  if (balance >= cost) {
-    balance -= cost;
-    cout << "Transaction successful. Remaining balance: " << balance << " UGX" << endl;
-  } else {
-    cout << "Error: Insufficient balance. Remaining balance: " << balance << " UGX" << endl;
-  }
+  cout << "Sum of the series: " << sum << endl;
+
   return 0;
 }
